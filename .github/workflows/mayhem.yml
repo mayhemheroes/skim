@@ -60,6 +60,7 @@ jobs:
       matrix:
         mayhemfile:
           - mayhem/mark_new_run.Mayhemfile
+          - mayhem/parse_criteria.Mayhemfile
 
     steps:
       - uses: actions/checkout@v3

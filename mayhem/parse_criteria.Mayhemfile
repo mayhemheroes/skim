@@ -1,0 +1,5 @@
+project: skim
+target: parse_criteria
+
+cmds:
+  - cmd: /parse_criteria

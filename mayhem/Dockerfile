@@ -12,6 +12,7 @@ WORKDIR /skim
 
 #RUN mv inject/mod.rs src/pwm/mod.rs
 RUN cd ./src && sed -i 's/mod global/pub mod global/g' lib.rs
+RUN cd ./src && sed -i 's/mod item/pub mod item/g' lib.rs
 
 RUN cd ./fuzz && cargo +nightly hfuzz build
 
@@ -19,3 +20,4 @@ RUN cd ./fuzz && cargo +nightly hfuzz build
 FROM ubuntu:20.04
 
 COPY --from=builder skim/fuzz/hfuzz_target/x86_64-unknown-linux-gnu/release/mark_new_run /
+COPY --from=builder skim/fuzz/hfuzz_target/x86_64-unknown-linux-gnu/release/parse_criteria /
