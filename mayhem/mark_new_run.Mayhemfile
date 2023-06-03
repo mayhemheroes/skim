@@ -1,0 +1,5 @@
+project: skim
+target: mark_new_run
+
+cmds:
+  - cmd: /mark_new_run
