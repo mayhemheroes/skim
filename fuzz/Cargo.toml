@@ -1,0 +1,23 @@
+[package]
+name = "skim-fuzz"
+version = "0.0.0"
+edition = "2021"
+
+[package.metadata]
+cargo-fuzz = true
+
+[dependencies]
+skim = { path = ".." }
+honggfuzz = "0.5.55"
+
+# Prevent this from interfering with workspaces
+[workspace]
+members = ["."]
+
+[[bin]]
+name = "parse_criteria"
+path = "fuzz_targets/parse_criteria.rs"
+
+[[bin]]
+name = "mark_new_run"
+path = "fuzz_targets/mark_new_run.rs"
